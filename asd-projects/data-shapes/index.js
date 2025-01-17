@@ -50,17 +50,25 @@ $(document).ready(function () {
   for (var i = 0; i < dataShapes.length; i++) {
     var currentShape = dataShapes[i];
     if (currentShape[color] === "red") {
-      currentShape[goodBehavior] = "bounce";
+      currentShape["goodBehavior"] = "bounce"
     } else if (currentShape[color] === "blue") {
-      currentShape[goodBehavior] = "blink";
+      currentShape["goodBehavior"] = "blink";
     } else {
-      currentShape[goodBehavior] = "spin";
+      currentShape["goodBehavior"] = "spin";
     }
   }
 
   // TODO 3-a: add a function that handles the static display type
+function handleStatic(data){
+  setBackgroundWithObject[data]
+  animationDetails = 1;
+}
 
   // TODO 4-a: add a function that handles the good display type
+  function handleGood(color, shape, repeat){
+    setBackgroundWithSimple[color, shape, repeat];
+    animationDetails = 2;
+  }
 
   // TODO 5-a: add a function that handles the bad display type
 
@@ -70,10 +78,13 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
+    handleStatic[currentShape]
   }
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
+    var currentShape = dataShapes[i]
+    handleGood(currentShape[color], [shape], [repeat])
   }
 
   function badDisplay() {
