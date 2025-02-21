@@ -20,6 +20,7 @@ body {
   height: 20px;
   position: absolute;
   user-select: none;
+  border-radius: 10px;
 }
 
 .snake {
@@ -29,9 +30,14 @@ body {
 
 #snake-head {
   background-color: rgb(174, 61, 91);
+  background-image: url("../../images/NinaSnake.png");
+  background-size: contain;
 }
 
 .apple {
   background-color: rgb(236, 29, 64);
+  background-image: url("../../images/IMG_5345.PNG");
+  background-size: contain;
+
   z-index: 1;
 }
