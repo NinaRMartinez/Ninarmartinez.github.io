@@ -8,6 +8,7 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
+  //magic numbers easier use
   var KEY = {
     LEFT: 37,
     RIGHT: 39,
@@ -26,8 +27,8 @@ function runProgram(){
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame at 60fps
   $(document).on('keydown', handleKeyDown);                           // handling key down events
-  $(document).on('keyup', handleKeyUp);                               
-  $("#walker").on('click', changeColor);                              
+  $(document).on('keyup', handleKeyUp);         //handles key up                      
+                             
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -36,6 +37,7 @@ function runProgram(){
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
+ //calling funcs in a func
   function newFrame() {
     repositionGameItem(walker);
     wallCollision(walker);
@@ -44,7 +46,7 @@ function runProgram(){
    
   }
   
-  
+  //tells where and how to move with certain keys on keydown
   function handleKeyDown(event) {
     if (event.which === KEY.LEFT) {
       walker.speedX = -5;
@@ -64,7 +66,7 @@ function runProgram(){
     }
     
   }
-  
+  //handles movement on keyup
   function handleKeyUp(event){
     if (event.which === KEY.LEFT) {
       walker.speedX = 0;
@@ -104,7 +106,7 @@ function runProgram(){
     item.walkerX += speedX;
     item.walkerY += speedY;
   }
- 
+ //reposition
   function redrawGameItem(item) {
     //utilizes relavent data, except speed
     let walkerX = item.walkerX;
@@ -124,19 +126,19 @@ function runProgram(){
     let height = $("#board").height() - 45;
 
     if (walkerX < 0) {
-      //collide with left wall
+      //collision left wall
       item.walkerX -= speedX;
     }
     if (walkerY < 0) {
-      //collide with top wall
+      //collision top wall
       item.walkerY -= speedY;
     }
-    if (walkerX > width) {
-      //collide with right wall
+    if (walkerX > width-1) { //width/height-1 creates better border collision 
+      //collision right wall
       item.walkerX -= speedX;
     }
-    if (walkerY > height) {
-      //collide with bottom wall
+    if (walkerY > height-1) {
+      //collision bottom wall
       item.walkerY -= speedY;
     }
   }
