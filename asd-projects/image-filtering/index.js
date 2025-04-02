@@ -36,7 +36,7 @@ function applyAndRender() {
 function applyFilter(filterFunction) {
   for (var i = 0; i < image.length; i++) {
     var currentString = image[i];
-    for (var j = 0; j < currentString.length; i++) {
+    for (var j = 0; j < currentString.length; j++) {
       var rgbString = currentString[j];
       var rgbNumbers = rgbStringToArray(rgbString);
       filterFunction(rgbNumbers);
@@ -55,9 +55,9 @@ function applyFilterNoBackground(filterFunction) {
         var rgbNumbers = rgbStringToArray(rgbString);
         filterFunction(rgbNumbers);
         rgbString = rgbArrayToString(rgbNumbers); 
-        image[j][k] = rgbString;
+        
       }
-     
+      image[j][k] = rgbString;
     }
   }
 }
@@ -74,10 +74,10 @@ function reddify(reddifyArray) {
 
 // TODO 6: Create more filter functions
 function decreaseBlue(blueArray) {
-  blueArray[BLUE] = keepInBounds(blueArray[BLUE]);
+  blueArray[BLUE] = keepInBounds(blueArray[BLUE]-50);
 }
 function increaseGreenByBlue(GBBArray) {
-  GBBArray[GREEN] = keepInBounds(GBBArray[GREEN]);
+  GBBArray[GREEN] = keepInBounds(GBBArray[GREEN] + GBBArray[BLUE]);
 }
 
 // CHALLENGE code goes below here
