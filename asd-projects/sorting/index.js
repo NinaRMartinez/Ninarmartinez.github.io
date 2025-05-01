@@ -34,58 +34,59 @@ await sleep();
 }
 
 // TODO 3: Implement quickSort
-async function quickSort(left, right, array){
+//    FUNCTION quicksort(array, left, right):
+async function quickSort(array, left, right){
+  //IF (right - left) > 0:
     if((right - left) > 0){
+        //  index = partition(array, left, right)
         var i = await partition(array,left,right);
+//  IF left < (index - 1):
         if(left < (i - 1)){
+ //  quickSort(array, left, index - 1)
             await quickSort(array,left,i - 1);
         }
+        //IF index < right:
         if(i < right){
+ //quicksort(array, index, right)
+
             await quickSort(array,i,right);
         }
     }
     return;
 }
 
+
 // TODOs 4 & 5: Implement partition
-async function partition(left, right, array){
-    // FUNCTION partition (array, left, right):
 
-  //pivot = select a pivot
-  pivot = array[Math.floor((right + left) / 2)].value;
-
-  //WHILE left < right:
-  while(left < right){
-
-//WHILE array[left] < pivot { left++ }
-while(array[left] < pivot) {left++}
-
-    //WHILE array[right] > pivot { right-- }
-    while(array[left] > pivot){right --}
-
-         //IF left < right:
+async function partition(array, left, right){
+   //pivot = select a pivot
+    var pivot = array[Math.floor((right + left) / 2)].value;
+//WHILE left < right:
+    while(left < right){
+         //WHILE array[left] < pivot { left++ }
+        while(array[left].value < pivot) { left++};
+//WHILE array[right] > pivot { right-- }
+        while(array[right].value > pivot) { right--};
+        //IF left < right:
         if(left < right){
-
-            //swap array[left] and array[right]
-            swap(array,left, right);
-            updateCounter(quickCounter); //update the quicksort move counter
+             //  swap array[left] and array[right]
+            swap(array,left,right);
+            updateCounter(quickCounter); 
             await sleep();
-    }
-   
-
-    
-  }
-    
+        }
+    };
 
   //RETURN left + 1
+    return left + 1; //
 }
 
+
 // TODO 1: Implement swap
-function swap(i, j, array) {
+function swap(array, i, j) {
     var temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-    drawSwap(i, j, array);
+    drawSwap(array, i, j);
 }
 
 ///////////////////////////////////////////////////////////////////////
