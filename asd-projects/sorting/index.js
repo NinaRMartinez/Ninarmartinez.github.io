@@ -14,7 +14,7 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
-async function bubbleSort(array){
+async function bubbleSort(array){ // bubble sorts by placing pivots and moving the leser bubbles up
 //ITERATE over the array from i = 0 to i = length - 1
 for(var i = 0; i <= array.length - 1; i++){
     // ITERATE over the array from j = length - 1 to j = i + 1
@@ -34,16 +34,16 @@ await sleep();
 }
 
 // TODO 3: Implement quickSort
-//    FUNCTION quicksort(array, left, right):
+//    FUNCTION quicksort(array, left, right): // sorts quickly by seperating sorting into diff sections 
 async function quickSort(array, left, right){
   //IF (right - left) > 0:
     if((right - left) > 0){
         //  index = partition(array, left, right)
-        var i = await partition(array,left,right);
+        var i = await partition(array,left,right); // function call with await to pause the execution of async func partition
 //  IF left < (index - 1):
         if(left < (i - 1)){
  //  quickSort(array, left, index - 1)
-            await quickSort(array,left,i - 1);
+            await quickSort(array,left,i - 1); // call with quicksort, await to pause execution of this async func
         }
         //IF index < right:
         if(i < right){
@@ -58,13 +58,13 @@ async function quickSort(array, left, right){
 
 // TODOs 4 & 5: Implement partition
 
-async function partition(array, left, right){
+async function partition(array, left, right){ // decides on a pivot, and decides where to sort
    //pivot = select a pivot
     var pivot = array[Math.floor((right + left) / 2)].value;
 //WHILE left < right:
     while(left < right){
          //WHILE array[left] < pivot { left++ }
-        while(array[left].value < pivot) { left++};
+        while(array[left].value < pivot) { left++}; // uses the pivot to decide which one to move
 //WHILE array[right] > pivot { right-- }
         while(array[right].value > pivot) { right--};
         //IF left < right:
@@ -72,7 +72,7 @@ async function partition(array, left, right){
              //  swap array[left] and array[right]
             swap(array,left,right);
             updateCounter(quickCounter); 
-            await sleep();
+            await sleep(); // calls sleep with a pause
         }
     };
 
@@ -82,11 +82,11 @@ async function partition(array, left, right){
 
 
 // TODO 1: Implement swap
-function swap(array, i, j) {
+function swap(array, i, j) { // swaps array values by creating a temp
     var temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-    drawSwap(array, i, j);
+    drawSwap(array, i, j); // drawswap func call to swap values and display on screen
 }
 
 ///////////////////////////////////////////////////////////////////////
