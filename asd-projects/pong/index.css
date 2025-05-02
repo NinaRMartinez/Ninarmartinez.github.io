@@ -19,3 +19,33 @@ body {
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }
+#leftPaddle {
+  background-color: rgb(255, 202, 245);
+  width: 20px;
+  height: 80px;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+}
+
+#rightPaddle {
+  background-color: rgb(202, 202, 255);
+  width: 20px;
+  height: 80px;
+
+  position: absolute;
+  top: 100px;
+  left: 410px;
+}
+
+#ball {
+  background-color: rgb(215, 255, 202);
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+
+  position: absolute;
+  top: 170px;
+  left: 200px;
+}
+
