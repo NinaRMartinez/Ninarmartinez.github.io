@@ -14,7 +14,7 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
-async function bubbleSort(array){ // bubble sorts by placing pivots and moving the leser bubbles up
+async function bubbleSort(array){ // bubble sorts by walking through the array, comparing the values
 //ITERATE over the array from i = 0 to i = length - 1
 for(var i = 0; i <= array.length - 1; i++){
     // ITERATE over the array from j = length - 1 to j = i + 1
@@ -34,7 +34,7 @@ await sleep();
 }
 
 // TODO 3: Implement quickSort
-//    FUNCTION quicksort(array, left, right): // sorts quickly by seperating sorting into diff sections 
+//    FUNCTION quicksort(array, left, right): // sorts quickly by seperating sorting into diff sections and using pivots to compare
 async function quickSort(array, left, right){
   //IF (right - left) > 0:
     if((right - left) > 0){
