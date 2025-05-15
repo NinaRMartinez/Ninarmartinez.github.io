@@ -28,6 +28,7 @@ function runProgram() {
   var leftPaddle = makeGameItem("#leftPaddle");
   var rightPaddle = makeGameItem("#rightPaddle");
   var ball = makeGameItem("#ball");
+  
   var player1Score = 0;
   var player2Score = 0;
 

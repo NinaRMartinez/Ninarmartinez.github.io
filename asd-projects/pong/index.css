@@ -7,15 +7,16 @@ body {
   width: 440px;
   height: 440px;
   border: 1px solid white;
-    background-image: url("../../images/VBALL.jpeg");
+    background-image: url("../../images/VBALL.png");
     background-size: contain;
   position: relative;
 }
 
 
 #leftPaddle {
-  background-color: rgb(255, 202, 245);
-  width: 20px;
+  background-image: url("../../images/KINGAC.PNG");
+  background-size: cover;
+  width: 50px;
   height: 80px;
   position: absolute;
   top: 100px;
@@ -23,8 +24,9 @@ body {
 }
 
 #rightPaddle {
-  background-color: rgb(202, 202, 255);
-  width: 20px;
+ background-image: url("../../images/NINA.png");
+ background-size: cover;
+  width: 60px;
   height: 80px;
 
   position: absolute;
@@ -33,9 +35,10 @@ body {
 }
 
 #ball {
-  background-color: rgb(215, 255, 202);
-  width: 20px;
-  height: 20px;
+  background-image: url("../../images/ball.jpeg");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
 
   position: absolute;
@@ -43,13 +46,19 @@ body {
   left: 200px;
 }
 #score1 {
-  background-color: #f29a9a;
+
+  background-color: white;
   color: black;
-  width: 700px;
+  width: 500px;
+
+  
 }
 #score2 {
   text-align: right;
-  background-color: #f29a9a;
+  background-color: white;
   color: black;
-  width: 700px;
+  width: 500px;
+ 
+
+  
 }
