@@ -47,7 +47,7 @@ function runProgram() {
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
-  function newFrame() {
+  function newFrame() { //calls all functions makes my code work
     repositionGameItem(leftPaddle);
     repositionGameItem(rightPaddle);
     repositionGameItem(ball);
@@ -66,7 +66,7 @@ function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
 
   
-  function endGame() {
+  function endGame() { //ends the game when the interval timer is done and game is over
     // stop the interval timer
     clearInterval(interval);
 
@@ -75,7 +75,7 @@ function runProgram() {
   }
   
 
-  function makeGameItem(id){
+  function makeGameItem(id){ //creates objects for diff game items
     var gameItem = {};
     gameItem.x = parseFloat($(id).css("left"));
     gameItem.y = parseFloat($(id).css("top"));
@@ -87,13 +87,13 @@ function runProgram() {
     return gameItem;
   }
 
-  function handleKeyDown(event) { // handles all keydown events for wasd
+  function handleKeyDown(event) { // handles all keydown events
    if (event.which === KEY.W) {
       leftPaddle.speedY = -5;
       console.log("W pressed");
     }
      
-    if (event.which === KEY.DOWN) {
+    if (event.which === KEY.DOWN) {//down arrow
       rightPaddle.speedY = 5;
       console.log("DOWN pressed");
     }
@@ -101,14 +101,14 @@ function runProgram() {
       leftPaddle.speedY = 5;
       console.log("S pressed");
     }
-    if (event.which === KEY.UP) {
+    if (event.which === KEY.UP) {//up arrow
       rightPaddle.speedY = -5;
       console.log("UP pressed");
     }
   }
    
   //handles movement on keyup
-  function handleKeyUp(event){ // handles all down events for arrows
+  function handleKeyUp(event){ // handles all up events for arrows
     if (event.which === KEY.W) {
         leftPaddle.speedY = 0;
         console.log("W released");
@@ -117,29 +117,29 @@ function runProgram() {
         leftPaddle.speedY = 0;
         console.log("S released");
       }
-      if (event.which === KEY.UP) {
+      if (event.which === KEY.UP) {//arrow
         rightPaddle.speedY = 0;
         console.log("UP released");
       }
-      if (event.which === KEY.DOWN) {
+      if (event.which === KEY.DOWN) {//arrow
         rightPaddle.speedY = 0;
         console.log("DOWN released");
       }
   }
-  function startBall(){
+  function startBall(){//starts the ball in the middle of screen and makes speed random
     ball.x = 200;
     ball.y = 200;
     ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
     ball.speedY = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
   }
 
-  function repositionGameItem(item) {
+  function repositionGameItem(item) {// changes the coords of items
   item.x += item.speedX;
   item.y += item.speedY;
   }
 
  //reposition
-  function redrawGameItem(item) {
+  function redrawGameItem(item) {//makes the movement visual 
   $(item.id).css("left", item.x);
   $(item.id).css("top", item.y);
   }
@@ -198,7 +198,7 @@ function runProgram() {
     }
   }
 }
- function doCollide(square1, square2) {
+ function doCollide(square1, square2) {//detects collissions with paddles, bounce effect
     // TODO: calculate and store the remaining
     // sides of the square1
     square1.leftX = square1.x;
